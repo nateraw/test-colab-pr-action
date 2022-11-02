@@ -1,0 +1,16 @@
+name: Make PR Comment
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  make_comment:
+    uses: nateraw/colab-pr-action/.github/workflows/make_pr_comment.yml@main
+    with:
+      github_repo_id: nateraw/test-colab-pr-action
+      pr_number: ${{ github.event.number }}
+      branch: ${GITHUB_REF##*/}
