@@ -13,6 +13,6 @@ jobs:
     with:
       github_repo_id: nateraw/test-colab-pr-action
       pr_number: ${{ github.event.number }}
-      branch: ${GITHUB_REF##*/}
+      commit_sha: ${{ github.event.pull_request.head.sha }}
     secrets:
       write_token: ${{ secrets.WRITE_TOKEN }}
