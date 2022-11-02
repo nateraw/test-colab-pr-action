@@ -1,3 +1,3 @@
 # test-colab-pr-action
 
-bump
+A test repo for the colab-pr-action.
