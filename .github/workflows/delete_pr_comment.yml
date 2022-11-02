@@ -1,0 +1,15 @@
+name: Delete notebook PR comment
+
+on:
+  pull_request:
+    types: [ closed ]
+
+
+jobs:
+  delete:
+    uses: nateraw/colab-pr-action/.github/workflows/delete_pr_comment.yml@main
+    with:
+      github_repo_id: nateraw/test-colab-pr-action
+      pr_number: ${{ github.event.number }}
+    secrets:
+      write_token: ${{ secrets.WRITE_TOKEN }}
